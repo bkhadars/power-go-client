@@ -5,7 +5,7 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/IBM-Cloud/power-go-client/helpers"
+	"github.com/bkhadars/power-go-client/helpers"
 )
 
 // GetNext ...

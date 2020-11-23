@@ -1,7 +1,7 @@
 package instance
 
 import (
-	"github.com/IBM-Cloud/power-go-client/ibmpisession"
+	"github.com/bkhadars/power-go-client/ibmpisession"
 )
 
 /*

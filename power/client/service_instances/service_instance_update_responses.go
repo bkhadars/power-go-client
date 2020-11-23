@@ -13,7 +13,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	models "github.com/IBM-Cloud/power-go-client/power/models"
+	models "github.com/bkhadars/power-go-client/power/models"
 )
 
 // ServiceInstanceUpdateReader is a Reader for the ServiceInstanceUpdate structure.

@@ -16,7 +16,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	models "github.com/IBM-Cloud/power-go-client/power/models"
+	models "github.com/bkhadars/power-go-client/power/models"
 )
 
 // NewPcloudV2VolumesPostParams creates a new PcloudV2VolumesPostParams object

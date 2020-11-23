@@ -1,11 +1,12 @@
 package instance
 
 import (
-	"github.com/IBM-Cloud/power-go-client/errors"
-	"github.com/IBM-Cloud/power-go-client/ibmpisession"
-	"github.com/IBM-Cloud/power-go-client/power/client/p_cloud_images"
-	"github.com/IBM-Cloud/power-go-client/power/models"
+	"github.com/bkhadars/power-go-client/errors"
+	"github.com/bkhadars/power-go-client/ibmpisession"
+	"github.com/bkhadars/power-go-client/power/client/p_cloud_images"
+	"github.com/bkhadars/power-go-client/power/models"
 	"log"
+	"fmt"
 )
 
 type IBMPIImageClient struct {
@@ -42,6 +43,43 @@ func (f *IBMPIImageClient) GetAll(powerinstanceid string) (*models.Images, error
 		return nil, errors.ToError(err)
 	}
 	return resp.Payload, nil
+
+}
+
+//Post the stock image
+
+func (f *IBMPIImageClient) ImportImage(powerinstanceid, imageName, s3FileName, region, accessKey, secretKey, bucketName, osType, diskType string) (*models.Image, error) {
+
+	var source = "url"
+	var body = models.CreateImage{
+		ImageName: imageName,
+		ImageFilename: s3FileName,
+		Region: region,
+		AccessKey: accessKey,
+		SecretKey: secretKey,
+		BucketName: bucketName,
+		OsType: osType,
+		DiskType: diskType,
+		Source:    &source,
+	}
+
+	fmt.Println("body:", body)
+	params := p_cloud_images.NewPcloudCloudinstancesImagesPostParamsWithTimeout(postTimeOut).WithCloudInstanceID(powerinstanceid).WithBody(&body)
+	fmt.Printf("params: %v\n", params)
+	fmt.Printf("f.session: %v\n", f.session)
+	resp, err, _ := f.session.Power.PCloudImages.PcloudCloudinstancesImagesPost(params, ibmpisession.NewAuth(f.session, powerinstanceid))
+	fmt.Printf("err: %v\n", err)
+	fmt.Printf("resp: %v\n", resp)
+	if err.Payload.State == "queued" {
+		log.Printf("Post is successful %s", *err.Payload.ImageID)
+
+	}
+
+	if resp != nil {
+		log.Printf("Failed to initiate the copy job ")
+	}
+
+	return err.Payload, nil
 
 }
 

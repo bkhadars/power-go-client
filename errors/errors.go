@@ -5,7 +5,7 @@ import (
 	"reflect"
 	//"strconv"
 
-	"github.com/IBM-Cloud/power-go-client/power/models"
+	"github.com/bkhadars/power-go-client/power/models"
 )
 
 // ErrorTarget ...

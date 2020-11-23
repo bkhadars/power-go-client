@@ -2,11 +2,11 @@ package instance
 
 import (
 	"fmt"
-	"github.com/IBM-Cloud/power-go-client/errors"
-	"github.com/IBM-Cloud/power-go-client/ibmpisession"
-	"github.com/IBM-Cloud/power-go-client/power/client/p_cloud_p_vm_instances"
-	"github.com/IBM-Cloud/power-go-client/power/client/p_cloud_s_a_p"
-	"github.com/IBM-Cloud/power-go-client/power/models"
+	"github.com/bkhadars/power-go-client/errors"
+	"github.com/bkhadars/power-go-client/ibmpisession"
+	"github.com/bkhadars/power-go-client/power/client/p_cloud_p_vm_instances"
+	"github.com/bkhadars/power-go-client/power/client/p_cloud_s_a_p"
+	"github.com/bkhadars/power-go-client/power/models"
 	"log"
 	"time"
 )

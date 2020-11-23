@@ -7,6 +7,7 @@ package p_cloud_images
 
 import (
 	"github.com/go-openapi/runtime"
+	"fmt"
 
 	strfmt "github.com/go-openapi/strfmt"
 )
@@ -149,6 +150,7 @@ func (a *Client) PcloudCloudinstancesImagesPost(params *PcloudCloudinstancesImag
 		params = NewPcloudCloudinstancesImagesPostParams()
 	}
 
+	fmt.Print("I am here1")
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "pcloud.cloudinstances.images.post",
 		Method:             "POST",
@@ -162,7 +164,10 @@ func (a *Client) PcloudCloudinstancesImagesPost(params *PcloudCloudinstancesImag
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
+
+	fmt.Println("result:", result)
 	if err != nil {
+		fmt.Println("I am here2")
 		return nil, nil, err
 	}
 	switch value := result.(type) {

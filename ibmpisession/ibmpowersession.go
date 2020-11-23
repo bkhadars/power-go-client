@@ -15,9 +15,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/IBM-Cloud/power-go-client/power/client"
-	"github.com/IBM-Cloud/power-go-client/power/models"
-	"github.com/IBM-Cloud/power-go-client/utils"
+	"github.com/bkhadars/power-go-client/power/client"
+	"github.com/bkhadars/power-go-client/power/models"
+	"github.com/bkhadars/power-go-client/utils"
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"

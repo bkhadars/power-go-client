@@ -1,4 +1,4 @@
-module github.com/IBM-Cloud/power-go-client
+module github.com/bkhadars/power-go-client
 
 go 1.13
 
